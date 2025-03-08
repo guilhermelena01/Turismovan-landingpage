@@ -15,7 +15,8 @@ const config: Config = {
         "laranja_Forte": "#EC7F24",
         "marrom_Avermelhado": "#A6511F",
         "vermelho_Escuro": "#BF1E0F",
-        "grafite": "#272526"
+        "grafite": "#272526",
+        "azul_principal": "#3B82F6"
       }
     },
   },
