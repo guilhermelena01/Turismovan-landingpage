@@ -2,7 +2,11 @@ import { FontOswald } from "@/src/utils/util";
 import Cards from "./components/Cards";
 import { Binoculars, Bus, Luggage, PartyPopper } from "lucide-react";
 
-export default function NossosServicos() {
+interface NossosServicosProps {
+    homePage?: boolean;
+}
+
+export default function NossosServicos({ homePage }: NossosServicosProps) {
 
     const cardData = [
         {
@@ -29,9 +33,9 @@ export default function NossosServicos() {
 
     return (
         <>
-            <section className={`flex flex-col items-center gap-24 bg-[#f5f5f5] text-grafite py-12 ${FontOswald.className}`}>
-                <h2 className="text-4xl">NOSSOS SERVIÇOS</h2>
-                <Cards data={cardData} />
+            <section className={`flex flex-col items-center gap-24 bg-[#f5f5f5] text-grafite ${homePage && "py-12"} ${FontOswald.className}`}>
+                {homePage && <h2 className="text-4xl">NOSSOS SERVIÇOS</h2>}
+                <Cards data={cardData} homePage={homePage}/>
             </section>
         </>
     )

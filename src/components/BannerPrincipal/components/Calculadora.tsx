@@ -4,13 +4,13 @@ import { Minus, Plus } from "lucide-react";
 
 export default function Calculadora() {
     const [adultsCount, setAdultsCount] = useState(0)
+    const maxPeopleQuantity = 24;
+    const minPeopleQUantity = 0;
 
-    function handlePeoplesQuantity(peopleType: string) {
-        const maxPeopleQuantity = 24;
-        const minPeopleQUantity = 0;
-
-        if (peopleType == "adult") {
-            setAdultsCount()
+    function handlePeoplesQuantity(peopleType: string, countType: string) {
+        switch (peopleType && countType) {
+            case "adult" && "add":
+                return setAdultsCount(prevState => prevState < maxPeopleQuantity && prevState + 1);
         }
     }
 
@@ -43,14 +43,19 @@ export default function Calculadora() {
                             <span className="flex gap-1 justify-center bg-white rounded-3xl px-4">
                                 <button onClick={() => setAdultsCount(prevState => prevState - 1)}><Minus /></button>
                                 <input
-                                    maxLength={12}
                                     value={adultsCount}
                                     onChange={(e) => setAdultsCount(e.target.value)}
                                     type="text"
                                     className="py-4 w-full text-center"
                                     placeholder="Quantidade de adultos"
                                 />
-                                <button onClick={() => setAdultsCount(prevState => prevState + 1)}><Plus /></button>
+                                <button
+                                    disabled={adultsCount == maxPeopleQuantity}
+                                    className={`${adultsCount == maxPeopleQuantity ? "cursor-not-allowed" : "cursor-pointer"}`}
+                                    onClick={() => handlePeoplesQuantity("adult", "add")}
+                                >
+                                    <Plus />
+                                </button>
                             </span>
                         </span>
                         <span className="flex flex-col gap-2 w-full">

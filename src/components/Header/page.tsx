@@ -1,11 +1,7 @@
 import { FontInter } from "@/src/utils/util";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
-interface NavbarComponentProps {
-    hasLogo?: boolean;
-}
-
-export default function NavbarComponent(props: NavbarComponentProps) {
+export default function Header() {
     return (
         <>
             <main className={`w-full flex justify-between bg-[#151515] px-32 py-6 ${FontInter.className}`}>

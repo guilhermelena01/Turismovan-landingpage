@@ -52,6 +52,7 @@ export default function TopDestinos() {
                 </div>
                 <CardsDestinos
                     data={cardData}
+                    homepage
                 />
             </section>
         </>
